@@ -58,7 +58,6 @@ class UserController {
       await user.destroy();
       return res.json({ Deletado: true });
     } catch (e) {
-      console.log(e);
       return res.json(null);
     }
   }
