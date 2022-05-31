@@ -2,8 +2,12 @@
 // Nodemon para atualizar sempre que há alterações
 // Sucrase para utilizar import e export from no node
 
+import dotenv from 'dotenv';
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes';
+import './src/database';
+
+dotenv.config();
 
 class App {
   constructor() {
