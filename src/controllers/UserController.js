@@ -12,7 +12,7 @@ class UserController {
 
   async index(req, res) {
     try {
-      const users = await User.findAll();
+      const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -23,7 +23,8 @@ class UserController {
     try {
       const { id } = req.params;
       const user = await User.findByPk(id);
-      return res.json(user);
+      const { nome, email } = user;
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.json(null);
     }
@@ -31,13 +32,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json({
-          errors: ['Id nao enviado'],
-        });
-      }
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.user.id);
       if (!user) {
         return res.status(400).json({
           errors: ['Usuario nao existe'],
