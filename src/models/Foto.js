@@ -26,7 +26,7 @@ export default class Foto extends Model {
       url: {
         type: Sequelize.VIRTUAL,
         get() {
-          return `uploads/images/${this.getDataValue('filename')}`;
+          return `https://aquiles-api.seventerprise.tech/images/${this.getDataValue('filename')}`;
         },
       },
     }, { sequelize });
