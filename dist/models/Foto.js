@@ -1,5 +1,4 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _sequelize = require('sequelize'); var _sequelize2 = _interopRequireDefault(_sequelize);
-var _appConfig = require('../config/appConfig'); var _appConfig2 = _interopRequireDefault(_appConfig);
 
  class Foto extends _sequelize.Model {
   static init(sequelize) {
@@ -27,7 +26,7 @@ var _appConfig = require('../config/appConfig'); var _appConfig2 = _interopRequi
       url: {
         type: _sequelize2.default.VIRTUAL,
         get() {
-          return `uploads/images/${this.getDataValue('filename')}`;
+          return `https://aquiles-api.seventerprise.tech/images/${this.getDataValue('filename')}`;
         },
       },
     }, { sequelize });
