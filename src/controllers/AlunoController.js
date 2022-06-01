@@ -62,7 +62,6 @@ class AlunoController {
 
       return res.json(alunoAtulizado);
     } catch (e) {
-      console.log(e);
       return res.status(400).json({
         errors: e.erros.map((err) => err.message),
       });
