@@ -26,12 +26,12 @@
       email: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'Email Já Existe',
+        },
         validate: {
           isEmail: {
             msg: 'Email Invalido',
-          },
-          unique: {
-            msg: 'Email já cadastrado',
           },
         },
       },

@@ -17,13 +17,13 @@ var _bcryptjs = require('bcryptjs'); var _bcryptjs2 = _interopRequireDefault(_bc
       email: {
         type: _sequelize2.default.STRING,
         defaultValue: '',
+        unique: {
+          msg: 'Email Já Existe',
+        },
         validate: {
           isEmail: {
             msg: 'Email Invalido',
           },
-        },
-        unique: {
-          msg: 'Email Já Existe',
         },
       },
       password_hash: {
